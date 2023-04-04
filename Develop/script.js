@@ -40,7 +40,7 @@ $(function () {
   // Code for the local saved tasks lopping through each hour depending on what is in local storage ( ID hour class description)
   // "val()" used to select all description classes children of "hour-[i]" (ID's 9-17)
   //  Local storage for current hour retrieved
-  
+
   for (let i = 9; i <= 17; i++) {
     $(`#hour-${i} .description`).val(localStorage.getItem(`hour-${i}`));
   }
@@ -51,7 +51,7 @@ $(function () {
 
 
   // Adding the time classes once the page loads 
-  // Renders the color change of blocks depending on past present or future of users local time 
+  // Renders the color change of blocks depending on class addtion of past present or future of users local time 
 
   addTimeClass();
 });
