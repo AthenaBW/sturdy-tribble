@@ -6,7 +6,8 @@ A simple work calendar application that allows a user to save events for each ho
 Calendar will generate different color coded blocks depending on past, present, or future based on the suers local time. 
 This app runs in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
-![Alt text](Assets/Screenshot%202023-04-04%20170243.png)
+![Alt text](Assets/Screenshot%202023-04-04%20172733.png)
+
 
 ## Installation
 
