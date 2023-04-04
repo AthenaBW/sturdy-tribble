@@ -1,7 +1,46 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-$(function () {
+// Function Wrapped in jQuery (Executed once HTML is loaded)
+$(function () { 
+
+  // For the save button to save when clicked
+  $(".saveBtn").on("click", function()
+  { const task = $(this).siblings(".description").val();
+  const hour = $(this).parent().attr("id");
+  localStorage.setItem(hour,task);
+
+  });
+
+  function addTimeClass() {
+    var currentHour = new Date().getHours();
+
+    // loop through each time-block div
+    $(".time-block").each(function () {
+      // get the hour from the id of the div
+      var hour = parseInt($(this).attr("id").split("-")[1]);
+    
+      // compare the hour to the current hour to determine whether it's in the past, present, or future
+      if (hour < currentHour) {
+        $(this).addClass("past");
+      } else if (hour === currentHour) {
+        $(this).addClass("present");
+      } else {
+        $(this).addClass("future");
+      }
+    });
+  }
+// Code for the local saved tasks
+  for (let i = 9; i <= 17; i++) {
+    $(`#hour-${i} .description`).val(localStorage.getItem(`hour-${i}`));
+  }
+// Code for current date in header
+const date = document.querySelector("#currentDay");
+date.textContent = dayjs().format("dddd MM, YYYY");
+
+
+// Adding the time classes once the page loads 
+
+addTimeClass();
+});
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -20,4 +59,5 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-});
+
+  
